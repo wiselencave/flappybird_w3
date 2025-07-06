@@ -1,0 +1,12 @@
+[CustomSkin]
+EscMenuBackground=
+EscMenuBlankBackground=
+EscMenuBorder=
+GoldIcon=sprites\transp
+LumberIcon=sprites\transp
+SupplyIcon=sprites\transp
+UpperMenuButtonTexture=sprites\transp
+
+[FrameDef]
+KEY_MENU=TRIGSTR_008
+

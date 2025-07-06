@@ -1,0 +1,18 @@
+# Default ignored files
+.idea/shelf/
+.idea/workspace.xml
+
+# builded maps
+*.w3x
+
+# map.w3x folder
+!map.w3x/
+
+# other
+ext/
+
+# ignore art
+art/*
+
+# minimap png
+!art/minimap.png

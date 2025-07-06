@@ -1,0 +1,25 @@
+﻿STRING 1
+{
+Flappy Bird
+}
+
+STRING 2
+{
+Any
+}
+
+STRING 5
+{
+Player 1
+}
+
+STRING 6
+{
+Force 1
+}
+
+STRING 8
+{
+|cff000000Menu|r |cff000000(|r|Cfffed312ESC|R|cff000000)|r
+}
+

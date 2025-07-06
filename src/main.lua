@@ -1,0 +1,12 @@
+function customMain()
+    preloadAngles(Bird:loadAngles())
+    Bird:initIdleModels()
+    BlzLoadTOCFile("framedef\\flappybird.toc")
+    initSounds()
+    Game.init()
+    TimerStart(CreateTimer(), 0, false, function()
+        setMenuTransparent()
+        Game.start()
+        DestroyTimer(GetExpiredTimer())
+    end)
+end

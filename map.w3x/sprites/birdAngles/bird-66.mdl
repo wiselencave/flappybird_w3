@@ -1,0 +1,120 @@
+Version {
+	FormatVersion 800,
+}
+Model "bird-template2" {
+	NumGeosets 1,
+	NumBones 1,
+	BlendTime 150,
+	MinimumExtent { -0.0170004, -0.012, 0.6 },
+	MaximumExtent { 0.0170004, 0.012, 0.6 },
+	BoundsRadius 0.60036075,
+}
+Sequences 3 {
+	Anim "Stand" {
+		Interval { 0, 119 },
+		MinimumExtent { -0.0170004, -0.012, 0.6 },
+		MaximumExtent { 0.0170004, 0.012, 0.6 },
+		BoundsRadius 0.60036075,
+	}
+	Anim "Morph" {
+		Interval { 129, 249 },
+		MinimumExtent { -0.0170004, -0.012, 0.6 },
+		MaximumExtent { 0.0170004, 0.012, 0.6 },
+		BoundsRadius 0.60036075,
+	}
+	Anim "Alternate" {
+		Interval { 259, 379 },
+		MinimumExtent { -0.0170004, -0.012, 0.6 },
+		MaximumExtent { 0.0170004, 0.012, 0.6 },
+		BoundsRadius 0.60036075,
+	}
+}
+Textures 3 {
+	Bitmap {
+		Image "sprites\testupscale512.tga",
+		WrapWidth,
+		WrapHeight,
+	}
+	Bitmap {
+		Image "sprites\redbird-midflap512.tga",
+		WrapWidth,
+		WrapHeight,
+	}
+	Bitmap {
+		Image "sprites\bluebird-midflap512.tga",
+		WrapWidth,
+		WrapHeight,
+	}
+}
+Materials 1 {
+	Material {
+		Layer {
+			FilterMode Transparent,
+			TextureID 3 {
+				DontInterp,
+				0: 0,
+				129: 1,
+				259: 2,
+			}
+			Unshaded,
+		}
+	}
+}
+Geoset {
+	Vertices 4 {
+		{ 0.0170004, -0.012, 0.6 },
+		{ -0.0170004, 0.012, 0.6 },
+		{ -0.0170004, -0.012, 0.6 },
+		{ 0.0170004, 0.012, 0.6 },
+	}
+	Normals 4 {
+		{ 0, 0, 1 },
+		{ 0, 0, 1 },
+		{ 0, 0, 1 },
+		{ 0, 0, 1 },
+	}
+	TVertices 4 {
+		{ 0.8734114, 0.7635846 },
+		{ 0.12658861, 0.2364154 },
+		{ 0.12658861, 0.7635846 },
+		{ 0.8734114, 0.2364154 },
+	}
+	VertexGroup {
+		0,
+		0,
+		0,
+		0,
+	}
+	Faces 1 6 {
+		Triangles {
+			{ 0, 1, 2, 0, 3, 1 },
+		}
+	}
+	Groups 1 1 {
+		Matrices { 0 },
+	}
+	MinimumExtent { -0.0170004, -0.012, 0.6 },
+	MaximumExtent { 0.0170004, 0.012, 0.6 },
+	BoundsRadius 0.60036075,
+	Anim {
+		MinimumExtent { -0.0170004, -0.012, 0.6 },
+		MaximumExtent { 0.0170004, 0.012, 0.6 },
+		BoundsRadius 0.60036075,
+	}
+	MaterialID 0,
+	SelectionGroup 0,
+}
+Bone "Plane" {
+	ObjectId 0,
+	Rotation 3 {
+		DontInterp,
+		0: { -0, -0, -0.54463905, 0.83867055 },
+		129: { -0, -0, -0.54463905, 0.83867055 },
+		259: { -0, -0, -0.54463905, 0.83867055 },
+	}
+	GeosetId 0,
+	GeosetAnimId None,
+}
+PivotPoints 1 {
+	{ 0, 0, 0.6 },
+}

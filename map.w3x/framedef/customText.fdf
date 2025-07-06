@@ -1,0 +1,7 @@
+IncludeFile "UI\FrameDef\glue\battlenettemplates.fdf",
+
+Frame "TEXT" "CustomText" INHERITS "BattleNetEditBoxTextTemplate" {
+    FontJustificationH JUSTIFYLEFT,
+    FontJustificationV JUSTIFYMIDDLE,
+    FrameFont "MasterFont", 0.02, "",
+}
