@@ -18,7 +18,6 @@ SetAnchor = BlzFrameSetPoint
 SetTexture = BlzFrameSetTexture
 SetEnable = BlzFrameSetEnable
 SetAbsPoint = BlzFrameSetAbsPoint
-ForGroupBJ()
 --------------------------------------
 
 function getConsole()
