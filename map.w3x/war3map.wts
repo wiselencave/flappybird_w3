@@ -20,6 +20,6 @@ Force 1
 
 STRING 8
 {
-|cff000000Menu|r |cff000000(|r|Cfffed312ESC|R|cff000000)|r
+|cff000000Menu|r |cff000000(|r|cfffed312ESC|r|cff000000)|r
 }
 
