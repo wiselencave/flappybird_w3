@@ -23,7 +23,6 @@ do
 
     function BinaryIcon:setTransparent()
         self.color.Alpha = 0
-        self.color.Green = 255
     end
 
     function BinaryIcon:pack()
