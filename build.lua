@@ -7,7 +7,7 @@ require 'build' {
         'src\\config.lua',
         'src\\inject.lua',
     },
-    --run = 'editor',
-    run  = 'game',
+    run = 'editor',
+    --run  = 'game',
 }
 

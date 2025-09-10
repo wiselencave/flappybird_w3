@@ -1,29 +1,39 @@
 do
-    local parent, text1, text2, bkdrp, bkdrp1, bkdrp2
+    local parent, mainRect, text1, text2
+
     local target, vel = .35, .02
     local width, height = .26, .13
+    local textOffset = 0.025
+    local iconOffset = 0.04
+
+    local color = "replaceabletextures\\teamcolor\\teamcolor17"
+    local borderColor = "textures\\white"
+    local thickness = 0.008
+
     local t = CreateTimer()
 
     local function addText(id, xOffset, yOffset, xOffset1, yOffset1)
-        local fr = BlzCreateFrame("CustomText", parent, 0, id)
-        BlzFrameSetPoint(fr, FRAMEPOINT_TOPLEFT, parent, FRAMEPOINT_TOPLEFT, xOffset, yOffset)
-        BlzFrameSetPoint(fr, FRAMEPOINT_BOTTOMRIGHT, parent, FRAMEPOINT_BOTTOMRIGHT, xOffset1, yOffset1)
+        local fr = BlzCreateFrame("CustomText", mainRect, 0, id)
+        BlzFrameSetPoint(fr, FRAMEPOINT_TOPLEFT, mainRect, FRAMEPOINT_TOPLEFT, xOffset, yOffset)
+        BlzFrameSetPoint(fr, FRAMEPOINT_BOTTOMRIGHT, mainRect, FRAMEPOINT_BOTTOMRIGHT, xOffset1, yOffset1)
 
         return fr
     end
 
     local function addIcon(yOffset, texture)
-        return createAnchoredBackdrop(parent, FRAMEPOINT_CENTER, FRAMEPOINT_CENTER, 0.08, yOffset, width / 5, width / 5, texture, 1)
+        return createAnchoredBackdrop(mainRect, FRAMEPOINT_CENTER, FRAMEPOINT_CENTER, 0.08, yOffset, width / 5, width / 5, texture, 1)
     end
 
     function initScoreFrame()
-        parent = createBackdropSize(getConsole(), .4, -width, width, height, "replaceabletextures\\teamcolor\\teamcolor17", "", 5)
-        text1 = addText(0, 0.025, 0, 0, height / 2)
-        text2 = addText(1,0.025, -height / 2, 0, 0)
+        parent = createBackdropSize(getConsole(), .4, -width, width, height, borderColor, "", 5)
+        mainRect = createAnchoredBackdrop(parent, FRAMEPOINT_CENTER, FRAMEPOINT_CENTER, 0, 0, width - thickness, height - thickness, color, 1, false)
 
-        bkdrp = addIcon(0, "sprites\\bluebird-midflap512")
-        bkdrp1 = addIcon(0.04, "sprites\\redbird-downflap512")
-        bkdrp2 = addIcon(-0.04, "sprites\\yellowbird-upflap512")
+        text1 = addText(0, textOffset, 0, 0, height / 2)
+        text2 = addText(1, textOffset, -height / 2, 0, 0)
+
+        addIcon(0, "sprites\\bluebird-midflap512")
+        addIcon(iconOffset, "sprites\\redbird-downflap512")
+        addIcon(-iconOffset, "sprites\\yellowbird-upflap512")
 
         return parent
     end

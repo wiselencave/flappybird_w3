@@ -14,5 +14,9 @@ ext/
 # ignore art
 art/*
 
-# minimap png
+# minimap
 !art/minimap.png
+!art/war3mapMap.blp
+
+#out folder
+/out/

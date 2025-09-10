@@ -9,10 +9,13 @@ SetScale = BlzFrameSetScale
 PlayAnimation = BlzFrameSetSpriteAnimate
 SetModel = BlzFrameSetModel
 SetText = BlzFrameSetText
+GetText = BlzFrameGetText
 SetAlignment = BlzFrameSetTextAlignment
 IsVisible = BlzFrameIsVisible
 SetLevel = BlzFrameSetLevel
 SetSize = BlzFrameSetSize
+GetHeight = BlzFrameGetHeight
+GetWidth = BlzFrameGetWidth
 SetValue = BlzFrameSetValue
 SetRange = BlzFrameSetMinMaxValue
 SetParent = BlzFrameSetParent
@@ -214,16 +217,6 @@ function setMenuTransparent()
     local tf = BlzGetFrameByName("EscMenuBackdrop", 0)
     BlzFrameSetTexture(tf, "sprites\\transp.dds", 0, true)
 end
-
----returns a value from 0 to 0.4
-function getHUDScale()
-    return BlzFrameGetWidth(BlzGetFrameByName("ConsoleBottomBar", 0)) - .4
-end
-
----returns a value from 0 to 100
-function getHUDScaleValue()
-    return MathRound((BlzFrameGetWidth(BlzGetFrameByName("ConsoleBottomBar", 0)) - .4) * 250)
-end
 function table.removeValue(t, value)
     for i = 1, #t do
         if t[i] == value then
@@ -375,6 +368,9 @@ function preloadAngles(t, min, max)
 end
 function startMusic()
     if not _ENV.snd then
+        StopMusic(false)
+        ClearMapMusic()
+
         snd = CreateSound("sound\\music\\mp3music\\war2\\orc3_opl",true, false, false, 10, 10, "DefaultEAXON")
         SetSoundChannel(snd, 7)
         SetSoundVolume(snd, 35)
@@ -777,7 +773,15 @@ function editMenuButton()
         SetVisible(BlzGetFrameByName(v,0), false)
     end
 
+    SetText(menu, GetText(menu))
     SetVisible(menu, true)
+end
+
+function setTitleHeight()
+    local title = BlzGetFrameByName("WouldTheRealOptionsTitleTextPleaseStandUp", 0)
+    SetPosition(title, 0.4, 0.46)
+    SetSize(title, GetWidth(title) * 3, GetHeight(title))
+    SetAlignment(title, TEXT_JUSTIFY_MIDDLE, TEXT_JUSTIFY_CENTER)
 end
 -- 184 x 267
 do
@@ -796,31 +800,41 @@ do
     end
 end
 do
-    local parent, text1, text2, bkdrp, bkdrp1, bkdrp2
+    local parent, mainRect, text1, text2
+
     local target, vel = .35, .02
     local width, height = .26, .13
+    local textOffset = 0.025
+    local iconOffset = 0.04
+
+    local color = "replaceabletextures\\teamcolor\\teamcolor17"
+    local borderColor = "textures\\white"
+    local thickness = 0.008
+
     local t = CreateTimer()
 
     local function addText(id, xOffset, yOffset, xOffset1, yOffset1)
-        local fr = BlzCreateFrame("CustomText", parent, 0, id)
-        BlzFrameSetPoint(fr, FRAMEPOINT_TOPLEFT, parent, FRAMEPOINT_TOPLEFT, xOffset, yOffset)
-        BlzFrameSetPoint(fr, FRAMEPOINT_BOTTOMRIGHT, parent, FRAMEPOINT_BOTTOMRIGHT, xOffset1, yOffset1)
+        local fr = BlzCreateFrame("CustomText", mainRect, 0, id)
+        BlzFrameSetPoint(fr, FRAMEPOINT_TOPLEFT, mainRect, FRAMEPOINT_TOPLEFT, xOffset, yOffset)
+        BlzFrameSetPoint(fr, FRAMEPOINT_BOTTOMRIGHT, mainRect, FRAMEPOINT_BOTTOMRIGHT, xOffset1, yOffset1)
 
         return fr
     end
 
     local function addIcon(yOffset, texture)
-        return createAnchoredBackdrop(parent, FRAMEPOINT_CENTER, FRAMEPOINT_CENTER, 0.08, yOffset, width / 5, width / 5, texture, 1)
+        return createAnchoredBackdrop(mainRect, FRAMEPOINT_CENTER, FRAMEPOINT_CENTER, 0.08, yOffset, width / 5, width / 5, texture, 1)
     end
 
     function initScoreFrame()
-        parent = createBackdropSize(getConsole(), .4, -width, width, height, "replaceabletextures\\teamcolor\\teamcolor17", "", 5)
-        text1 = addText(0, 0.025, 0, 0, height / 2)
-        text2 = addText(1,0.025, -height / 2, 0, 0)
+        parent = createBackdropSize(getConsole(), .4, -width, width, height, borderColor, "", 5)
+        mainRect = createAnchoredBackdrop(parent, FRAMEPOINT_CENTER, FRAMEPOINT_CENTER, 0, 0, width - thickness, height - thickness, color, 1, false)
 
-        bkdrp = addIcon(0, "sprites\\bluebird-midflap512")
-        bkdrp1 = addIcon(0.04, "sprites\\redbird-downflap512")
-        bkdrp2 = addIcon(-0.04, "sprites\\yellowbird-upflap512")
+        text1 = addText(0, textOffset, 0, 0, height / 2)
+        text2 = addText(1, textOffset, -height / 2, 0, 0)
+
+        addIcon(0, "sprites\\bluebird-midflap512")
+        addIcon(iconOffset, "sprites\\redbird-downflap512")
+        addIcon(-iconOffset, "sprites\\yellowbird-upflap512")
 
         return parent
     end
@@ -1101,8 +1115,10 @@ function customMain()
     BlzLoadTOCFile("framedef\\flappybird.toc")
     initSounds()
     Game.init()
+    SetGameSpeed(MAP_SPEED_FASTEST)
     TimerStart(CreateTimer(), 0, false, function()
         setMenuTransparent()
+        setTitleHeight()
         Game.start()
         DestroyTimer(GetExpiredTimer())
     end)
@@ -1169,7 +1185,7 @@ end
 
 function config()
 SetMapName("TRIGSTR_001")
-SetMapDescription("")
+SetMapDescription("TRIGSTR_009")
 SetPlayers(1)
 SetTeams(1)
 SetGamePlacement(MAP_PLACEMENT_USE_MAP_SETTINGS)

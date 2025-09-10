@@ -1,7 +1,4 @@
 [CustomSkin]
-EscMenuBackground=
-EscMenuBlankBackground=
-EscMenuBorder=
 GoldIcon=sprites\transp
 LumberIcon=sprites\transp
 SupplyIcon=sprites\transp

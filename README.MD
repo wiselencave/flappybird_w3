@@ -1,14 +1,14 @@
 ## Flappy Bird — Warcraft III Edition
 
 <p align="center">
-    <img src="promo/screenshot0.png" width="400"/>
-    <img src="promo/screenshot.png" width="400"/>
-    <img src="promo/screenshot1.png" width="400"/>
-    <img src="promo/screenshot2.png" width="400"/>
+    <img src="promo/screenshot4.png" width="400"/>
+    <img src="promo/screenshot5.png" width="400"/>
+    <img src="promo/screenshot6.png" width="400"/>
+    <img src="promo/screenshot3.png" width="400"/>
 </p>
 
 A fully custom Flappy Bird clone built inside Warcraft III using only the native Frame UI API.  
-Developed in February 2025, updated in July 2025. Target patch: `Reforged 2.0.3`.
+Developed in February 2025, updated in September 2025. Target patch: `Reforged 2.0.3`.
 
 ## Features
 
@@ -21,9 +21,9 @@ Developed in February 2025, updated in July 2025. Target patch: `Reforged 2.0.3`
 
 **Latest Version:**
 - [📥 XGM](https://xgm.guru/p/wc3/flappybird2d)
-- [📥 HIVE](https://www.hiveworkshop.com/threads/flappy-bird.358576/)
 
 **Outdated / Old Version:**
+- [📥 HIVE](https://www.hiveworkshop.com/threads/flappy-bird.358576/)
 - [📥 Epicwar](https://www.epicwar.com/maps/345054/)
 - [▶️ YouTube Preview](https://youtu.be/cKfmRm-XE6g)
 

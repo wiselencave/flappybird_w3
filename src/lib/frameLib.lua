@@ -5,10 +5,13 @@ SetScale = BlzFrameSetScale
 PlayAnimation = BlzFrameSetSpriteAnimate
 SetModel = BlzFrameSetModel
 SetText = BlzFrameSetText
+GetText = BlzFrameGetText
 SetAlignment = BlzFrameSetTextAlignment
 IsVisible = BlzFrameIsVisible
 SetLevel = BlzFrameSetLevel
 SetSize = BlzFrameSetSize
+GetHeight = BlzFrameGetHeight
+GetWidth = BlzFrameGetWidth
 SetValue = BlzFrameSetValue
 SetRange = BlzFrameSetMinMaxValue
 SetParent = BlzFrameSetParent
@@ -209,14 +212,4 @@ end
 function setMenuTransparent()
     local tf = BlzGetFrameByName("EscMenuBackdrop", 0)
     BlzFrameSetTexture(tf, "sprites\\transp.dds", 0, true)
-end
-
----returns a value from 0 to 0.4
-function getHUDScale()
-    return BlzFrameGetWidth(BlzGetFrameByName("ConsoleBottomBar", 0)) - .4
-end
-
----returns a value from 0 to 100
-function getHUDScaleValue()
-    return MathRound((BlzFrameGetWidth(BlzGetFrameByName("ConsoleBottomBar", 0)) - .4) * 250)
 end

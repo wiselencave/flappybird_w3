@@ -1,11 +1,11 @@
 ﻿STRING 1
 {
-Flappy Bird
+Flappy Bird v1.0
 }
 
 STRING 2
 {
-Any
+1
 }
 
 STRING 5
@@ -20,6 +20,16 @@ Force 1
 
 STRING 8
 {
-|cff000000Menu|r |cff000000(|r|cfffed312ESC|r|cff000000)|r
+|cff000000Menu|r|cff000000(|r|cfffed312ESC|r|cff000000)|r
+}
+
+STRING 9
+{
+A recreation of the legendary mobile arcade side-scroller Flappy Bird in the Warcraft III engine using Frame API. |cff00ced1|r|n|nControls: |cff00ced1|r|n- Left Click – Jump, start flying |cff00ced1|r|n- ESC – Pause / open game menu |cff00ced1|r|n|nSource Code: |cff00ced1|r|ngithub.com/wiselencave/flappybird_w3
+}
+
+STRING 10
+{
+wiselen
 }
 
