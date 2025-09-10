@@ -17,15 +17,18 @@ Developed in February 2025, updated in September 2025. Target patch: `Reforged 2
 - Adaptive layout: resizes to different screen aspect ratios
 - Persistent high score saving using the Preload Exploit technique
 
-## Links
+## Releases
 
-**Latest Version:**
+**Latest Map:**
 - [📥 XGM](https://xgm.guru/p/wc3/flappybird2d)
-
-**Outdated / Old Version:**
 - [📥 HIVE](https://www.hiveworkshop.com/threads/flappy-bird.358576/)
+- [📥 Epicwar](https://www.epicwar.com/maps/346331/)
+
+**Older Versions:**
 - [📥 Epicwar](https://www.epicwar.com/maps/345054/)
-- [▶️ YouTube Preview](https://youtu.be/cKfmRm-XE6g)
+
+**Preview**
+- [▶️ YouTube Preview (outdated)](https://youtu.be/cKfmRm-XE6g)
 
 ## Dependencies
 
